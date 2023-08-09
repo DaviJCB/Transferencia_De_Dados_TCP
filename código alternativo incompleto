@@ -1,0 +1,51 @@
+NOME_ARQUIVO = "Grafo.txt"
+import pandas as pd
+import numpy as np  
+import networkx as nx
+import matplotlib.pyplot as plt
+
+class grafo:
+    def __init__(self, nome_arquivo):
+        self.nos = []
+        self.arestas = []
+        self.arquivo = self.le_linhas(nome_arquivo)
+        self.encontra_Nos(self.arquivo, self.nos)
+        self.Encontra_Arestas(self.arestas, self.arquivo)
+        print(self.nos)
+        print(self.arestas)
+
+
+    def le_linhas(self, arc):
+        try:
+            with open(arc, "r") as arquivo:
+                conteudo = arquivo.readlines()
+                return conteudo
+        except FileNotFoundError:
+                print("Arquivo não encontrado")
+        except Exception as e:
+                print("Excessão do tipo e")
+    
+    def encontra_Nos(self, conteudo, nos):
+        for linha in conteudo:
+            if linha.strip():
+                nos.append(linha[0])
+                return nos
+
+
+    def Encontra_Arestas(self, arestas, conteudo):
+        for linha in conteudo:
+            arestas.append(linha[4:].strip())
+            return arestas
+  
+
+    def liga_nos():
+        # if A in conteudo:
+        #      arestas.append(...)
+        # Tentar fazer com que o programa comece a ler, com o readLines, a partir da posição 3. Dessa forma, o mesmo vai pegar só as conexões. Se pá, da pra usar o código acima para
+        # Encontrar a conexão. Parece uma boa ideia.
+        print()
+
+         
+
+grafo = grafo(NOME_ARQUIVO)
+
